@@ -1,5 +1,4 @@
-#!/usr/python3
+#!/usr/bin/python3
 def multiply_by_2(a_dictionary):
-    dup_dictionary = a_dictionary.copy()
-    dup_dictionary = {key: value * 2 for key , value in a_dictionary.items()}
-    return dup_dictionary
+    new_dic = dict(map(lambda x: (x[0], x[1] * 2), a_dictionary.items()))
+    return (new_dic)

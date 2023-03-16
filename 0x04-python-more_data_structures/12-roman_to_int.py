@@ -1,21 +1,33 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    roman_dict = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
-    }
-    result = 0
-    prev_value = 0
-    for char in roman_string[::-1]:
-        curr_value = roman_dict[char]
-        if curr_value < prev_value:
-            result -= curr_value
-        else:
-            result += curr_value
-        prev_value = curr_value
-    return result
+    value = 0
+    if not (isinstance(roman_string, str)):
+        return (0)
+    for i in range(len(roman_string)):
+        if (roman_string[i] == 'I'):
+            value += 1
+        if (roman_string[i] == 'V'):
+            if (roman_string[i - 1] == 'I' and i != 0):
+                value -= 2
+            value += 5
+        if (roman_string[i] == 'X'):
+            if (roman_string[i - 1] == 'I' and i != 0):
+                value -= 2
+            value += 10
+        if (roman_string[i] == 'L'):
+            if (roman_string[i - 1] == 'X' and i != 0):
+                value -= 20
+            value += 50
+        if (roman_string[i] == 'C'):
+            if (roman_string[i - 1] == 'X' and i != 0):
+                value -= 20
+            value += 100
+        if (roman_string[i] == 'D'):
+            if (roman_string[i - 1] == 'C' and i != 0):
+                value -= 200
+            value += 500
+        if (roman_string[i] == 'M'):
+            if (roman_string[i - 1] == 'C' and i != 0):
+                value -= 200
+            value += 1000
+    return (value)
