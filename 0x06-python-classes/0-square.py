@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Class Documentation"""
-class Square():
-    """ Class Documentation"""
+"""Define a class Square."""
+
+
+class Square:
+    """Represent a square."""
     pass
